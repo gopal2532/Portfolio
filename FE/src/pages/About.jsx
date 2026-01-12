@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section className="relative bg-[#0b0b0b] h-screen">
+    <section className="relative bg-[#0b0b0b]">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -10,11 +10,6 @@ export default function About() {
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="max-w-5xl mx-auto px-6 py-24"
       >
-        {/* Section label */}
-        <span className="text-sm uppercase tracking-widest text-orange-400/80">
-          About
-        </span>
-
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-8">
           Who I Am
@@ -23,8 +18,9 @@ export default function About() {
         {/* Content card */}
         <div className="bg-white/5 border border-white/10 backdrop-blur rounded-2xl p-8 md:p-10">
           <p className="text-gray-400 leading-relaxed text-lg">
-            I’m a passionate <span className="text-orange-400">Frontend Developer</span>{" "}
-            with strong experience in building responsive, scalable, and
+            I’m a passionate{" "}
+            <span className="text-orange-400">Frontend Developer</span> with
+            strong experience in building responsive, scalable, and
             user-friendly web applications.
           </p>
 

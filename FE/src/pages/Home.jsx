@@ -39,14 +39,14 @@ export default function Home() {
           </motion.h1>
 
           {/* TAGLINE */}
-          <motion.h2
+          {/* <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="mt-4 text-3xl md:text-4xl font-bold text-orange-400"
           >
             build clean web experiences
-          </motion.h2>
+          </motion.h2> */}
 
           {/* Description */}
           <motion.p
@@ -55,7 +55,7 @@ export default function Home() {
             transition={{ delay: 0.45 }}
             className="text-gray-400 mt-6 max-w-xl text-lg"
           >
-            I create modern, animated, and scalable user interfaces using React,
+            Create modern, animated, and scalable user interfaces using React,
             Tailwind CSS, and clean UX principles.
           </motion.p>
 
@@ -66,11 +66,11 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="mt-10 flex justify-center md:justify-start gap-4"
           >
-            <button className="bg-orange-500 hover:bg-orange-600 transition px-7 py-3 rounded-lg text-black font-semibold">
+            {/* <button className="bg-orange-500 hover:bg-orange-600 transition px-7 py-3 rounded-lg text-black font-semibold">
               Let’s Talk
-            </button>
+            </button> */}
 
-            <button className="border border-gray-700 hover:border-orange-400 transition px-7 py-3 rounded-lg text-gray-300 hover:text-orange-400">
+            <button className="border border-gray-700 ml-[25%] hover:border-orange-400 transition px-7 py-3 rounded-lg text-gray-300 hover:text-orange-400">
               View Work
             </button>
           </motion.div>
