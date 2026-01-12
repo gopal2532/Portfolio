@@ -1,31 +1,74 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
 
 export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(null);
+  const hoverTimer = useRef(null);
+
   const projects = [
-    { title: "SMT Rack System", tech: ["React", "MQTT", "Prisma"] },
-    { title: "Job Portal", tech: ["React", "REST API"] },
-    { title: "E-Commerce UI", tech: ["Tailwind", "Responsive"] },
+    {
+      title: "SMT Rack System",
+      desc: "Real-time rack monitoring and inventory management system.",
+      tech: ["React", "MQTT", "Prisma"],
+    },
+    {
+      title: "Job Portal",
+      desc: "Role-based job posting and application management platform.",
+      tech: ["React", "REST API"],
+    },
+    {
+      title: "E-Commerce UI",
+      desc: "Modern responsive shopping UI with clean UX.",
+      tech: ["Tailwind", "Responsive"],
+    },
   ];
 
-  return (
-    <section className="max-w-6xl mx-auto px-6 py-20">
-      <h2 className="text-4xl font-bold text-cyan-400 mb-12">Projects</h2>
+  /* -------------------------------
+     Hover intent (prevents flicker)
+  --------------------------------*/
+  const handleEnter = (index) => {
+    hoverTimer.current = setTimeout(() => {
+      setActiveIndex(index);
+    }, 120); // small delay = smoother UX
+  };
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {projects.map((p, i) => (
+  const handleLeave = () => {
+    clearTimeout(hoverTimer.current);
+    setActiveIndex(null);
+  };
+
+  return (
+    <section className="relative min-h-screen bg-[#0b0b0b] px-6 py-24">
+      
+      {/* PROJECT GRID */}
+      <div
+        className={`max-w-6xl mx-auto grid md:grid-cols-3 gap-8 transition-opacity duration-300
+        ${activeIndex !== null ? "opacity-30" : "opacity-100"}`}
+      >
+        {projects.map((project, index) => (
           <motion.div
-            key={i}
-            whileHover={{ y: -10 }}
-            className="relative bg-gray-900 p-6 rounded-2xl overflow-hidden"
+            key={index}
+            onMouseEnter={() => handleEnter(index)}
+            onMouseLeave={handleLeave}
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.2 }}
+            className="bg-white/5 border border-white/10 rounded-2xl p-7 cursor-pointer"
           >
-            <motion.div
-              whileHover={{ opacity: 1 }}
-              className="absolute inset-0 bg-cyan-500/10 opacity-0 transition"
-            />
-            <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-            <div className="flex gap-2 flex-wrap text-xs text-cyan-400">
-              {p.tech.map((t, j) => (
-                <span key={j} className="border border-cyan-400 px-2 py-1 rounded">
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {project.title}
+            </h3>
+
+            <p className="text-gray-400 text-sm mb-4">
+              {project.desc}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((t, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1 text-xs rounded-full
+                  bg-orange-500/10 text-orange-400 border border-orange-500/20"
+                >
                   {t}
                 </span>
               ))}
@@ -33,6 +76,53 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+
+      {/* 70% SCREEN HOVER PREVIEW */}
+      <AnimatePresence>
+        {activeIndex !== null && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            onMouseEnter={() => setActiveIndex(activeIndex)}
+            onMouseLeave={handleLeave}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="relative bg-[#0b0b0b] border border-white/10 rounded-3xl p-12 shadow-2xl"
+              style={{ width: "70vw", height: "70vh" }}
+              initial={{ scale: 0.93, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.93, opacity: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6">
+                {projects[activeIndex].title}
+              </h2>
+
+              <p className="text-gray-400 text-lg mb-8 max-w-2xl">
+                {projects[activeIndex].desc}
+              </p>
+
+              <div className="flex gap-3 flex-wrap">
+                {projects[activeIndex].tech.map((t, i) => (
+                  <span
+                    key={i}
+                    className="px-4 py-2 rounded-full
+                    bg-orange-500/10 text-orange-400 border border-orange-500/20"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <p className="absolute bottom-6 right-8 text-sm text-gray-500">
+                move cursor out to close
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

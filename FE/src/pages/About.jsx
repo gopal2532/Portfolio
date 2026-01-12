@@ -2,18 +2,40 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="max-w-4xl mx-auto px-6 py-20"
-    >
-      <h2 className="text-4xl font-bold mb-6 text-cyan-400">About Me</h2>
-      <p className="text-gray-400 leading-relaxed">
-        I’m a passionate frontend developer with strong experience in
-        building responsive, scalable, and user-friendly web applications.
-        I enjoy crafting clean UI, smooth animations, and writing
-        maintainable code using React and Tailwind CSS.
-      </p>
-    </motion.section>
+    <section className="relative bg-[#0b0b0b] h-screen">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="max-w-5xl mx-auto px-6 py-24"
+      >
+        {/* Section label */}
+        <span className="text-sm uppercase tracking-widest text-orange-400/80">
+          About
+        </span>
+
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-8">
+          Who I Am
+        </h2>
+
+        {/* Content card */}
+        <div className="bg-white/5 border border-white/10 backdrop-blur rounded-2xl p-8 md:p-10">
+          <p className="text-gray-400 leading-relaxed text-lg">
+            I’m a passionate <span className="text-orange-400">Frontend Developer</span>{" "}
+            with strong experience in building responsive, scalable, and
+            user-friendly web applications.
+          </p>
+
+          <p className="text-gray-400 leading-relaxed text-lg mt-6">
+            I enjoy crafting clean UI, smooth animations, and writing
+            maintainable code using <span className="text-white">React</span>,{" "}
+            <span className="text-white">Tailwind CSS</span>, and modern
+            frontend tools.
+          </p>
+        </div>
+      </motion.div>
+    </section>
   );
 }

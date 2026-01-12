@@ -1,40 +1,87 @@
 import { motion } from "framer-motion";
+import {
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaGitAlt,
+  FaGithub,
+} from "react-icons/fa";
+import {
+  SiTailwindcss,
+  SiExpress,
+  SiMysql,
+  SiPrisma,
+} from "react-icons/si";
 import { stagger, fadeUp } from "../utils/motion";
 
 const skills = [
-  ["HTML", 95],
-  ["CSS", 90],
-  ["JavaScript", 85],
-  ["React", 88],
-  ["Tailwind CSS", 92],
+  { name: "React", icon: FaReact },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "JavaScript", icon: FaJs },
+  { name: "HTML5", icon: FaHtml5 },
+  { name: "CSS3", icon: FaCss3Alt },
+  { name: "Node.js", icon: FaNodeJs },
+  { name: "Express", icon: SiExpress },
+  { name: "MySQL", icon: SiMysql },
+  { name: "Prisma", icon: SiPrisma },
+  { name: "Git", icon: FaGitAlt },
+  { name: "GitHub", icon: FaGithub },
 ];
 
 export default function Skills() {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-24">
-      <motion.h2 variants={fadeUp} initial="hidden" whileInView="visible"
-        className="text-4xl text-cyan-400 mb-10">Skills</motion.h2>
+    <section className="relative bg-[#0b0b0b] min-h-screen">
+      <div className="max-w-6xl mx-auto px-6 py-24">
 
-      <motion.div variants={stagger} initial="hidden" whileInView="visible"
-        className="grid md:grid-cols-3 gap-8">
-        {skills.map(([name, level]) => (
-          <motion.div key={name} variants={fadeUp}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gray-900 p-6 rounded-xl">
-            <div className="flex justify-between">
-              <span>{name}</span>
-              <span className="text-cyan-400">{level}%</span>
-            </div>
-            <div className="h-2 bg-gray-800 rounded mt-3">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${level}%` }}
-                className="h-2 bg-cyan-400 rounded"
-              />
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Section Header */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3">
+            Tools & Technologies
+          </h2>
+        </motion.div>
+
+        {/* Skills Grid */}
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
+        >
+          {skills.map(({ name, icon: Icon }) => (
+            <motion.div
+              key={name}
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.25 }}
+              className="
+                group bg-white/5 border border-white/10
+                rounded-2xl p-6 flex flex-col items-center
+                justify-center gap-4 backdrop-blur
+              "
+            >
+              {/* Icon */}
+              <Icon className="text-4xl text-orange-400 group-hover:scale-110 transition" />
+
+              {/* Label */}
+              <span className="text-sm font-medium text-white">
+                {name}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(249,115,22,0.12),transparent_45%)] pointer-events-none" />
     </section>
   );
 }
