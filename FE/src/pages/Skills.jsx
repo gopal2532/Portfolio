@@ -29,57 +29,71 @@ const skills = [
   { name: "Prisma", icon: SiPrisma },
   { name: "Git", icon: FaGitAlt },
   { name: "GitHub", icon: FaGithub },
-  { name: "VsCode", icon:VscVscode },
+  { name: "VS Code", icon: VscVscode },
 ];
 
 export default function Skills() {
   return (
-    <section className="relative bg-[#0b0b0b] ">
-      <div className="max-w-6xl mx-auto px-6 py-24">
+    <section className="relative bg-[#0b0b0b] py-20">
+      <div className="max-w-6xl mx-auto px-6">
 
-        {/* SECTION HEADER — SCROLL ANIMATION */}
+        {/* SECTION HEADER */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="mb-16"
+          className="mb-14"
         >
           <h2 className="text-4xl md:text-5xl font-extrabold text-white">
             Tools & Technologies
           </h2>
         </motion.div>
 
-        {/* SKILLS GRID — STAGGER ON SCROLL */}
+        {/* SKILLS GRID */}
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.25 }}
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8"
         >
           {skills.map(({ name, icon: Icon }) => (
             <motion.div
               key={name}
               variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ type: "spring", stiffness: 250, damping: 18 }}
               className="
                 relative group
                 bg-white/5 border border-white/10
                 rounded-2xl p-6
                 flex flex-col items-center justify-center gap-4
+                overflow-hidden
               "
             >
+              {/* HOVER GLOW */}
+              <div
+                className="
+                  absolute inset-0 opacity-0
+                  bg-gradient-to-br from-orange-500/20 to-transparent
+                  group-hover:opacity-100 transition
+                "
+              />
+
               {/* ICON */}
               <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
+                initial={{ scale: 0.6, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="relative z-10"
               >
                 <Icon className="text-4xl" />
               </motion.div>
 
               {/* LABEL */}
-              <span className="text-sm font-medium text-white">
+              <span className="relative z-10 text-sm font-medium text-white">
                 {name}
               </span>
             </motion.div>

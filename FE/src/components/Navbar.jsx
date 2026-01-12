@@ -5,7 +5,7 @@ export default function Navbar() {
 
         {/* Logo */}
         <span className="font-extrabold text-xl text-orange-400">
-          Gopal<span className="text-white">.dev</span>
+          {/* Gopal<span className="text-white">.dev</span> */}
         </span>
 
         {/* Links */}
