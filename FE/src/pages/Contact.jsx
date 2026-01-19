@@ -11,9 +11,7 @@ export default function Contact() {
         className="max-w-xl mx-auto px-6 py-24"
       >
         {/* Header */}
-        <span className="text-sm uppercase tracking-widest text-orange-400/80">
-          Contact
-        </span>
+
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-10">
           Let’s Work Together
         </h2>

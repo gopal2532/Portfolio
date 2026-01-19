@@ -45,9 +45,9 @@ function AnimatedName({ text }) {
   );
 }
 
-/* ---------------------------------
+/* 
    Home Component
----------------------------------- */
+- */
 export default function Home() {
   return (
     <section className="min-h-screen flex items-center bg-[#0b0b0b] px-6">
@@ -59,7 +59,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-block mb-6 rounded-full bg-orange-500/10 px-5 py-2 text-sm text-orange-400 border border-orange-500/20"
+            className="inline-block mb-6  rounded-full bg-orange-500/10 px-5 py-2 text-sm text-orange-400 border border-orange-500/20"
           >
             Web Developer
           </motion.span>

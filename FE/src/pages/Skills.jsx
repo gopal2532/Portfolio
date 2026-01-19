@@ -9,7 +9,13 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
-import { SiTailwindcss, SiExpress, SiMysql, SiPrisma } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiExpress,
+  SiMysql,
+  SiPrisma,
+  SiRedux,
+} from "react-icons/si";
 import { fadeUp, stagger } from "../utils/motion";
 
 const skills = [
@@ -22,7 +28,7 @@ const skills = [
   { name: "Express", icon: SiExpress },
   { name: "MySQL", icon: SiMysql },
   { name: "Prisma", icon: SiPrisma },
-  { name: "Git", icon: FaGitAlt },
+  { name: "Redux", icon: SiRedux },
   { name: "GitHub", icon: FaGithub },
   { name: "VS Code", icon: VscVscode },
 ];

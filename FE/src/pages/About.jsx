@@ -19,7 +19,7 @@ export default function About() {
         <div className="bg-white/5 border border-white/10 backdrop-blur rounded-2xl p-8 md:p-10">
           <p className="text-gray-400 leading-relaxed text-lg">
             I’m a passionate{" "}
-            <span className="text-orange-400">Frontend Developer</span> with
+            <span className="text-orange-400">Web Developer</span> with
             strong experience in building responsive, scalable, and
             user-friendly web applications.
           </p>
