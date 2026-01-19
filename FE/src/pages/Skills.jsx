@@ -9,12 +9,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { VscVscode } from "react-icons/vsc";
-import {
-  SiTailwindcss,
-  SiExpress,
-  SiMysql,
-  SiPrisma,
-} from "react-icons/si";
+import { SiTailwindcss, SiExpress, SiMysql, SiPrisma } from "react-icons/si";
 import { fadeUp, stagger } from "../utils/motion";
 
 const skills = [
@@ -36,7 +31,6 @@ export default function Skills() {
   return (
     <section className="relative bg-[#0b0b0b] py-20">
       <div className="max-w-6xl mx-auto px-6">
-
         {/* SECTION HEADER */}
         <motion.div
           variants={fadeUp}

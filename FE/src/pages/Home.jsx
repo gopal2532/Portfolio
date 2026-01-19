@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import profile from "../assets/profile.jpg";
 
-/* ---------------------------------
+/* 
    Animated Name (Letter Jump Effect)
----------------------------------- */
+ */
 function AnimatedName({ text }) {
   const letters = text.split("");
 
@@ -52,10 +52,8 @@ export default function Home() {
   return (
     <section className="min-h-screen flex items-center bg-[#0b0b0b] px-6">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
-
         {/* TEXT CONTENT */}
         <div className="text-center md:text-left">
-
           {/* Badge */}
           <motion.span
             initial={{ opacity: 0, y: 10 }}
@@ -142,7 +140,6 @@ export default function Home() {
             "
           />
         </motion.div>
-
       </div>
     </section>
   );
