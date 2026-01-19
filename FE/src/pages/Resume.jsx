@@ -20,7 +20,6 @@ export default function Resume() {
   return (
     <section className="relative bg-[#0b0b0b] py-20">
       <div className="max-w-5xl mx-auto px-6">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -77,17 +76,13 @@ export default function Resume() {
                 whileHover={{ y: -4 }}
                 className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur"
               >
-                <h3 className="text-xl font-semibold text-white">
-                  {exp.role}
-                </h3>
+                <h3 className="text-xl font-semibold text-white">{exp.role}</h3>
 
                 <p className="text-sm text-orange-400 mt-1">
                   {exp.company} • {exp.period}
                 </p>
 
-                <p className="text-gray-400 mt-4 leading-relaxed">
-                  {exp.desc}
-                </p>
+                <p className="text-gray-400 mt-4 leading-relaxed">{exp.desc}</p>
               </motion.div>
             </motion.div>
           ))}

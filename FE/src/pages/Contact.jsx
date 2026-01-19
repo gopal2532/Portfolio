@@ -20,7 +20,6 @@ export default function Contact() {
 
         {/* Form Card */}
         <div className="bg-white/5 border border-white/10 backdrop-blur rounded-2xl p-8">
-          
           <input
             type="email"
             placeholder="Your email"
