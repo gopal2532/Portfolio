@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Optional links */}
         <div className="mt-4 flex justify-center gap-6 text-xs text-gray-500">
           <a
-            href="https://github.com/"
+            href="https://github.com/gopal2532"
             target="_blank"
             rel="noreferrer"
             className="hover:text-orange-400 transition"
@@ -22,19 +22,20 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/gopalakrishnan-g-310a00358/"
             target="_blank"
             rel="noreferrer"
             className="hover:text-orange-400 transition"
           >
             LinkedIn
           </a>
-          <a
-            href="mailto:your@email.com"
-            className="hover:text-orange-400 transition"
-          >
-            Email
-          </a>
+      <a
+  href="mailto:gopal994329@gmail.com"
+  className="hover:text-orange-400 transition"
+>
+  Email
+</a>
+
         </div>
       </div>
 
