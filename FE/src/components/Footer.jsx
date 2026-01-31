@@ -2,7 +2,6 @@ export default function Footer() {
   return (
     <footer className="relative bg-[#0b0b0b]">
       <div className="max-w-6xl mx-auto px-6 py-10 border-t border-white/10 text-center">
-        
         {/* Brand */}
         <p className="text-sm text-gray-400">
           © {new Date().getFullYear()}{" "}
@@ -29,13 +28,12 @@ export default function Footer() {
           >
             LinkedIn
           </a>
-      <a
-  href="mailto:gopal994329@gmail.com"
-  className="hover:text-orange-400 transition"
->
-  Email
-</a>
-
+          <a
+            href="mailto:gopal994329@gmail.com"
+            className="hover:text-orange-400 transition"
+          >
+            Email
+          </a>
         </div>
       </div>
 
