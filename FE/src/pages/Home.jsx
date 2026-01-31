@@ -58,7 +58,6 @@ export default function Home() {
   return (
     <section className="min-h-screen flex items-center bg-[#0b0b0b] px-6">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center">
-
         {/* TEXT CONTENT */}
         <div className="text-center md:text-left">
           {/* Badge */}
@@ -99,7 +98,8 @@ export default function Home() {
             transition={{ delay: 0.6 }}
             className="mt-10 flex justify-center md:justify-start"
           >
-            <button className="
+            <button
+              className="
               border border-gray-700
               hover:border-orange-400
               hover:text-orange-400
@@ -107,7 +107,8 @@ export default function Home() {
               px-7 py-3
               rounded-lg
               text-gray-300
-            ">
+            "
+            >
               View Work
             </button>
           </motion.div>
@@ -141,12 +142,14 @@ export default function Home() {
           <div className="absolute w-[380px] h-[380px] rounded-full bg-orange-500/20 blur-3xl" />
 
           {/* IMAGE */}
-          <div className="
+          <div
+            className="
             relative z-10
             p-1
             rounded-full
             bg-orange-400
-          ">
+          "
+          >
             <img
               src={profile}
               alt="Gopalakrishnan"
@@ -160,7 +163,6 @@ export default function Home() {
             />
           </div>
         </motion.div>
-
       </div>
     </section>
   );
