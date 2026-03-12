@@ -1,27 +1,132 @@
-export default function Navbar() {
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-black/50 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
-        {/* Logo */}
-        <span className="font-extrabold text-xl text-orange-400">
-          {/* Gopal<span className="text-white">.dev</span> */}
-        </span>
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
-        {/* Links */}
-        <div className="flex gap-8 text-sm text-gray-300">
-          {["home", "about", "skills", "projects", "resume", "contact"].map(
-            (id) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                className="hover:text-orange-400 transition"
-              >
-                {id.charAt(0).toUpperCase() + id.slice(1)}
-              </a>
-            ),
-          )}
+const navLinks = [
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#resume" },
+  { name: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Handle scroll effect for glassmorphism background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [mobileMenuOpen]);
+
+  return (
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-4"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center w-full">
+        
+        {/* LOGO */}
+        <a 
+          href="#home" 
+          className="font-extrabold text-2xl tracking-tight text-white z-50 relative group"
+        >
+          Gopal<span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">.dev</span>
+        </a>
+
+        {/* DESKTOP LINKS */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-gray-300 hover:text-cyan-400 transition-colors duration-300 relative group"
+            >
+              {link.name}
+              {/* Subtle hover underline effect */}
+              <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
+          
+          {/* Desktop CTA Button */}
+          <a
+            href="#contact"
+            className="ml-4 px-5 py-2 text-sm font-bold text-black bg-cyan-400 hover:bg-cyan-300 rounded-lg shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] transition-all duration-300"
+          >
+            Hire Me
+          </a>
         </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          className="md:hidden relative z-50 p-2 -mr-2 text-gray-300 hover:text-white transition-colors"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {/* MOBILE MENU DRAWER */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 bg-[#050505] flex flex-col items-center justify-center min-h-screen"
+          >
+            {/* Mobile Decorative Glow */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-cyan-600/20 blur-[100px] rounded-full pointer-events-none" />
+
+            <div className="flex flex-col items-center gap-8 relative z-10">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                  className="text-2xl font-bold text-gray-300 hover:text-cyan-400 transition-colors"
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              
+              {/* Mobile CTA Button */}
+              <motion.a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
+                className="mt-4 px-8 py-3 text-lg font-bold text-black bg-cyan-400 rounded-xl shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+              >
+                Let's Talk
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
