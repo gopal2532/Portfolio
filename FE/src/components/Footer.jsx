@@ -16,7 +16,7 @@ export default function Footer() {
             href="https://github.com/gopal2532"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-orange-400 transition"
+            className="hover:text-accent-primary transition-colors"
           >
             GitHub
           </a>
@@ -24,13 +24,13 @@ export default function Footer() {
             href="https://www.linkedin.com/in/gopalakrishnan-g-310a00358/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-orange-400 transition"
+            className="hover:text-accent-primary transition-colors"
           >
             LinkedIn
           </a>
           <a
             href="mailto:gopal994329@gmail.com"
-            className="hover:text-orange-400 transition"
+            className="hover:text-accent-primary transition-colors"
           >
             Email
           </a>
@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
 
       {/* Subtle glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(249,115,22,0.08),transparent_45%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,var(--accent-glow),transparent_45%)] opacity-30 pointer-events-none" />
     </footer>
   );
 }
