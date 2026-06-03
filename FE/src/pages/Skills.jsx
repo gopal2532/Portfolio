@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMysql, SiPrisma } from "react-icons/si";
+import Tilt from "../components/Tilt.jsx";
 
 const skills = [
   { name: "React",       icon: FaReact,      color: "#61DAFB", desc: "UI Library"      },
@@ -92,51 +93,54 @@ export default function Skills() {
               <motion.div
                 variants={cardVariants}
                 key={skill.name}
-                className="group relative flex flex-col items-center justify-center gap-4 h-40 sm:h-48
-                  rounded-2xl border border-white/5 bg-white/[0.015]
-                  hover:border-white/10 cursor-default overflow-hidden
-                  transition-all duration-500 hover:-translate-y-2"
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = `0 20px 50px -12px ${skill.color}40`;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "none";
-                }}
+                className="group relative h-40 sm:h-48 rounded-2xl overflow-hidden"
               >
-                {/* radial brand glow on hover */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{ background: `radial-gradient(ellipse at 50% 80%, ${skill.color}14 0%, transparent 65%)` }}
-                />
-
-                {/* top accent line */}
-                <div
-                  className="absolute top-0 left-[20%] right-[20%] h-[2px] rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: `linear-gradient(90deg, transparent, ${skill.color}, transparent)` }}
-                />
-
-                {/* icon wrapper */}
-                <div className="relative flex items-center justify-center w-14 h-14">
-                  {/* glow ring */}
+                <Tilt
+                  className="w-full h-full flex flex-col items-center justify-center gap-4
+                    border border-white/5 bg-white/[0.015] hover:border-white/10 
+                    cursor-default transition-all duration-500 hover:-translate-y-1.5"
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = `0 20px 50px -12px ${skill.color}40`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = "none";
+                  }}
+                >
+                  {/* radial brand glow on hover */}
                   <div
-                    className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
-                    style={{ backgroundColor: skill.color }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{ background: `radial-gradient(ellipse at 50% 80%, ${skill.color}14 0%, transparent 65%)` }}
                   />
-                  <Icon
-                    className="relative text-5xl transition-all duration-500 text-white/20 group-hover:scale-110"
-                    style={{ color: skill.color }}
-                  />
-                </div>
 
-                {/* name + desc */}
-                <div className="text-center transition-all duration-500 group-hover:-translate-y-1">
-                  <p className="text-sm font-extrabold text-white/80 group-hover:text-white transition-colors">
-                    {skill.name}
-                  </p>
-                  <p className="text-[10px] text-gray-600 group-hover:text-gray-400 font-mono transition-colors mt-0.5">
-                    {skill.desc}
-                  </p>
-                </div>
+                  {/* top accent line */}
+                  <div
+                    className="absolute top-0 left-[20%] right-[20%] h-[2px] rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: `linear-gradient(90deg, transparent, ${skill.color}, transparent)` }}
+                  />
+
+                  {/* icon wrapper */}
+                  <div className="relative flex items-center justify-center w-14 h-14">
+                    {/* glow ring */}
+                    <div
+                      className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                    <Icon
+                      className="relative text-5xl transition-all duration-500 text-white/20 group-hover:scale-110"
+                      style={{ color: skill.color }}
+                    />
+                  </div>
+
+                  {/* name + desc */}
+                  <div className="text-center transition-all duration-500 group-hover:-translate-y-1">
+                    <p className="text-sm font-extrabold text-white/80 group-hover:text-white transition-colors">
+                      {skill.name}
+                    </p>
+                    <p className="text-[10px] text-gray-600 group-hover:text-gray-400 font-mono transition-colors mt-0.5">
+                      {skill.desc}
+                    </p>
+                  </div>
+                </Tilt>
               </motion.div>
             );
           })}

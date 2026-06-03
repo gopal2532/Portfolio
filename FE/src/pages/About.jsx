@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Zap, Sparkles } from "lucide-react";
+import Tilt from "../components/Tilt.jsx";
 
 /* 
   Scroll-Triggered CountUp Animation Component
@@ -160,7 +161,7 @@ export default function About() {
           <motion.div variants={itemVariants} className="lg:col-span-5 grid gap-6">
             
             {/* Card 1: Philosophy */}
-            <div className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500">
+            <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
               <div className="relative z-10">
                 <Terminal className="w-8 h-8 text-accent-primary mb-5 transition-colors duration-500" />
                 <h3 className="text-white font-bold text-xl mb-3">Development Philosophy</h3>
@@ -170,28 +171,28 @@ export default function About() {
               </div>
               {/* Dynamic theme accent blur */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
-            </div>
+            </Tilt>
 
             <div className="grid grid-cols-2 gap-6">
               {/* Card 2: Performance */}
-              <div className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500">
+              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
                 <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
                 <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
                 <p className="text-gray-400 text-xs leading-relaxed">
                   Optimized load times and zero-lag interactions.
                 </p>
                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
-              </div>
+              </Tilt>
 
               {/* Card 3: UX/UI */}
-              <div className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500">
+              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
                 <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
                 <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
                 <p className="text-gray-400 text-xs leading-relaxed">
                   Pixel-perfect layouts with a focus on usability.
                 </p>
                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
-              </div>
+              </Tilt>
             </div>
 
           </motion.div>

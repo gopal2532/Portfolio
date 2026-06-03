@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { X, ExternalLink, Github, Trophy } from "lucide-react";
+import Tilt from "../components/Tilt.jsx";
 
 const projects = [
   {
@@ -129,54 +130,55 @@ export default function Projects() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
-                  whileHover={{ y: -8 }}
                   onClick={() => setActiveIndex(originalIndex)}
-                  className="group relative cursor-pointer rounded-3xl p-5 bg-white/[0.01] border border-white/5 hover:border-accent-primary/30 hover:bg-white/[0.03] transition-all duration-500 shadow-lg shadow-black/50 flex flex-col h-full"
+                  className="group relative cursor-pointer rounded-3xl overflow-hidden h-full"
                 >
-                  {/* Card Image */}
-                  <div className="relative h-48 w-full mb-6 overflow-hidden rounded-2xl">
-                    <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[20%] group-hover:grayscale-0"
-                    />
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-100 group-hover:text-accent-primary transition-colors mb-3">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
-                      {project.desc}
-                    </p>
-                    
-                    {/* Performance metrics display */}
-                    <div className="flex items-center gap-2 mb-6 bg-white/[0.02] border border-white/5 px-3 py-2 rounded-xl">
-                      <Trophy size={14} className="text-accent-primary shrink-0" />
-                      <span className="text-[11px] text-gray-300 font-medium truncate">
-                        {project.metrics}
-                      </span>
+                  <Tilt className="w-full h-full p-5 bg-white/[0.01] border border-white/5 hover:border-accent-primary/30 hover:bg-white/[0.03] transition-all duration-500 shadow-lg shadow-black/50 flex flex-col">
+                    {/* Card Image */}
+                    <div className="relative h-48 w-full mb-6 overflow-hidden rounded-2xl">
+                      <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[20%] group-hover:grayscale-0"
+                      />
                     </div>
 
-                    {/* Tech Tags */}
-                    <div className="flex flex-wrap gap-2 mt-auto">
-                      {project.tech.slice(0, 3).map((t, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-white/[0.02] text-accent-primary border border-accent-primary/15"
-                        >
-                          {t}
+                    {/* Card Content */}
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-gray-100 group-hover:text-accent-primary transition-colors mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
+                        {project.desc}
+                      </p>
+                      
+                      {/* Performance metrics display */}
+                      <div className="flex items-center gap-2 mb-6 bg-white/[0.02] border border-white/5 px-3 py-2 rounded-xl">
+                        <Trophy size={14} className="text-accent-primary shrink-0" />
+                        <span className="text-[11px] text-gray-300 font-medium truncate">
+                          {project.metrics}
                         </span>
-                      ))}
-                      {project.tech.length > 3 && (
-                        <span className="px-3 py-1 text-[10px] font-bold rounded-md bg-white/[0.02] text-gray-400 border border-white/5">
-                          +{project.tech.length - 3}
-                        </span>
-                      )}
+                      </div>
+
+                      {/* Tech Tags */}
+                      <div className="flex flex-wrap gap-2 mt-auto">
+                        {project.tech.slice(0, 3).map((t, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1 text-[10px] font-bold tracking-wider uppercase rounded-md bg-white/[0.02] text-accent-primary border border-accent-primary/15"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                        {project.tech.length > 3 && (
+                          <span className="px-3 py-1 text-[10px] font-bold rounded-md bg-white/[0.02] text-gray-400 border border-white/5">
+                            +{project.tech.length - 3}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </Tilt>
                 </motion.div>
               );
             })}
