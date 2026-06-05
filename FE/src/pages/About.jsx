@@ -113,15 +113,17 @@ export default function About() {
           <motion.div variants={itemVariants} className="lg:col-span-7 space-y-8">
             <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 tracking-tight leading-tight">
               Engineering digital <br/>
-              <span className="text-white">experiences</span><span className="text-accent-primary transition-colors duration-500">.</span>
+              <span className="inline-block text-white">
+                experiences<span className="text-accent-primary transition-colors duration-500">.</span>
+              </span>
             </h2>
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
               <p>
-                I’m a passionate <span className="text-gray-200 font-semibold">Web Developer</span> who bridges the gap between complex logic and elegant design. I don't just write code; I build intuitive, scalable, and engaging digital products.
+                I’m a passionate <span className="text-gray-200 font-semibold">Frontend & Full-Stack Developer</span> who bridges the gap between complex logic and elegant design. I don't just write code; I build intuitive, scalable, and engaging digital products.
               </p>
               <p>
-                With a strong focus on <span className="text-accent-primary font-medium transition-colors duration-500">performance and architecture</span>, I specialize in the React ecosystem and modern backend tools, turning ideas into high-performance web applications that users love.
+                With a strong focus on <span className="text-accent-primary font-medium transition-colors duration-500">performance and architecture</span>, I specialize in the MERN stack ecosystem and modern database systems, turning ideas into high-performance web applications that users love.
               </p>
             </div>
             
@@ -161,37 +163,37 @@ export default function About() {
           <motion.div variants={itemVariants} className="lg:col-span-5 grid gap-6">
             
             {/* Card 1: Philosophy */}
-            <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
-              <div className="relative z-10">
-                <Terminal className="w-8 h-8 text-accent-primary mb-5 transition-colors duration-500" />
-                <h3 className="text-white font-bold text-xl mb-3">Development Philosophy</h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  "Clean code is not written by humans who don't make mistakes, but by humans who care about the next person reading it. Architecture matters."
-                </p>
-              </div>
-              {/* Dynamic theme accent blur */}
-              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
+            <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
+               <div className="relative z-10">
+                 <Terminal className="w-8 h-8 text-accent-primary mb-5 transition-colors duration-500" />
+                 <h3 className="text-white font-bold text-xl mb-3">Development Philosophy</h3>
+                 <p className="text-gray-400 leading-relaxed text-sm">
+                   "Clean code is not written by humans who don't make mistakes, but by humans who care about the next person reading it. Architecture matters."
+                 </p>
+               </div>
+               {/* Dynamic theme accent blur */}
+               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
             </Tilt>
 
             <div className="grid grid-cols-2 gap-6">
               {/* Card 2: Performance */}
-              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
-                <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Optimized load times and zero-lag interactions.
-                </p>
-                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
+              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
+                 <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
+                 <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
+                 <p className="text-gray-400 text-xs leading-relaxed">
+                   Optimized load times and zero-lag interactions.
+                 </p>
+                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
               </Tilt>
 
               {/* Card 3: UX/UI */}
-              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 transition-all duration-500 cursor-default">
-                <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Pixel-perfect layouts with a focus on usability.
-                </p>
-                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
+              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
+                 <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
+                 <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
+                 <p className="text-gray-400 text-xs leading-relaxed">
+                   Pixel-perfect layouts with a focus on usability.
+                 </p>
+                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
               </Tilt>
             </div>
 

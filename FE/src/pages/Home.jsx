@@ -136,10 +136,9 @@ function CanvasParticles() {
 */
 function TypewriterRoles() {
   const roles = [
-    "React Developer",
-    "Frontend Engineer",
-    "Full Stack Web Creator",
-    "UX/UI Enthusiast",
+    "Frontend Developer",
+    "MERN Stack Developer",
+    "Full Stack Developer",
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -253,23 +252,45 @@ const FloatingIcon = ({ children, delay, className, label }) => (
 */
 export default function Home() {
   const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
+  const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
+  const sectionRef = useRef(null);
 
   useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      setSpotlight({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
     const handleParallax = (e) => {
       const { innerWidth, innerHeight } = window;
       const x = (e.clientX - innerWidth / 2) * 0.035;
       const y = (e.clientY - innerHeight / 2) * 0.035;
       setParallaxOffset({ x, y });
     };
+    window.addEventListener("mousemove", handleMouseMove);
     window.addEventListener("mousemove", handleParallax);
-    return () => window.removeEventListener("mousemove", handleParallax);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mousemove", handleParallax);
+    };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center bg-[#050505] px-6 overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center bg-[#050505] px-6 overflow-hidden">
       
       {/* 1. Canvas Interactive Particles */}
       <CanvasParticles />
+
+      {/* Dynamic Cursor Spotlight Mesh Glow */}
+      <div 
+        className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+        style={{
+          background: `radial-gradient(circle 350px at ${spotlight.x}px ${spotlight.y}px, var(--accent-glow), transparent 80%)`
+        }}
+      />
 
       {/* 2. Subtle Grid Overlay */}
       <div 
@@ -323,7 +344,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-gray-400 mt-6 max-w-xl text-lg sm:text-xl leading-relaxed mx-auto md:mx-0"
           >
-            I build modern, animated, and scalable user interfaces using <span className="text-gray-200 font-semibold">React</span>, <span className="text-gray-200 font-semibold">Tailwind CSS</span>, and clean UI/UX architecture.
+            I build modern, animated, and scalable web applications using the <span className="text-gray-200 font-semibold">MERN stack</span> (MongoDB, Express, React, Node.js) and clean full-stack architecture.
           </motion.p>
 
           {/* Buttons */}

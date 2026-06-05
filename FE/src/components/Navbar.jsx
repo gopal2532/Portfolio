@@ -37,20 +37,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-4"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+        ? "bg-[#050505]/80 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-4"
+        : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-between items-center w-full">
-        
+
         {/* LOGO */}
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           className="font-extrabold text-2xl tracking-tight text-white z-50 relative group"
         >
-          Gopal<span className="text-accent-primary group-hover:text-accent-secondary transition-colors">.dev</span>
+          Gopal<span className="text-accent-primary group-hover:text-accent-secondary transition-colors"></span>
         </a>
 
         {/* DESKTOP LINKS & THEME WIDGET */}
@@ -78,17 +77,16 @@ export default function Navbar() {
                   key={themeName}
                   onClick={() => setAccent(themeName)}
                   title={`Accent: ${themeName}`}
-                  className={`w-3.5 h-3.5 rounded-full transition-all duration-300 relative ${
-                    isSelected
-                      ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
-                      : "hover:scale-110 opacity-50 hover:opacity-100"
-                  }`}
+                  className={`w-3.5 h-3.5 rounded-full transition-all duration-300 relative ${isSelected
+                    ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
+                    : "hover:scale-110 opacity-50 hover:opacity-100"
+                    }`}
                   style={{ backgroundColor: themeColors.primary }}
                 />
               );
             })}
           </div>
-          
+
           {/* Desktop CTA Button */}
           <a
             href="#contact"
@@ -137,7 +135,7 @@ export default function Navbar() {
               ))}
 
               {/* Mobile Accent Dot Picker */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
@@ -151,17 +149,16 @@ export default function Navbar() {
                     <button
                       key={themeName}
                       onClick={() => setAccent(themeName)}
-                      className={`w-5 h-5 rounded-full transition-all duration-300 relative ${
-                        isSelected
-                          ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
-                          : "opacity-50"
-                      }`}
+                      className={`w-5 h-5 rounded-full transition-all duration-300 relative ${isSelected
+                        ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
+                        : "opacity-50"
+                        }`}
                       style={{ backgroundColor: themeColors.primary }}
                     />
                   );
                 })}
               </motion.div>
-              
+
               {/* Mobile CTA Button */}
               <motion.a
                 href="#contact"
@@ -179,4 +176,4 @@ export default function Navbar() {
       </AnimatePresence>
     </nav>
   );
-}
+}

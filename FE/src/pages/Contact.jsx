@@ -96,7 +96,7 @@ export default function Contact() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                Let's Build Something <span className="text-accent-primary transition-colors duration-500">Together.</span>
+                Let's Build Something <span className="inline-block text-accent-primary transition-colors duration-500">Together.</span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md">
                 I'm currently open for new opportunities. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!

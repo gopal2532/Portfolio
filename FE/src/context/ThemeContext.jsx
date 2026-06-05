@@ -15,6 +15,21 @@ export const ACCENT_THEMES = {
     secondary: "#34d399",
     glow: "rgba(16, 185, 129, 0.4)",
   },
+  violet: {
+    primary: "#8b5cf6",
+    secondary: "#a78bfa",
+    glow: "rgba(139, 92, 246, 0.4)",
+  },
+  amber: {
+    primary: "#f59e0b",
+    secondary: "#fbbf24",
+    glow: "rgba(245, 158, 11, 0.4)",
+  },
+  rose: {
+    primary: "#f43f5e",
+    secondary: "#fb7185",
+    glow: "rgba(244, 63, 94, 0.4)",
+  },
 };
 
 export const ThemeProvider = ({ children }) => {

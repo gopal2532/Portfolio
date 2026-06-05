@@ -62,7 +62,9 @@ export default function Resume() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-              My Journey<span className="text-accent-primary transition-colors duration-500">.</span>
+              <span className="inline-block text-white">
+                My Journey<span className="text-accent-primary transition-colors duration-500">.</span>
+              </span>
             </h2>
           </div>
 
@@ -134,7 +136,7 @@ export default function Resume() {
                   <span className="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-accent-primary shadow-[0_0_15px_var(--accent-glow)] ring-4 ring-[#050505] transition-all duration-500" />
 
                   {/* TIMELINE CARD */}
-                  <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-6 md:p-8 backdrop-blur-xl hover:border-accent-primary/20 hover:bg-white/[0.02] transition-all duration-500 shadow-lg shadow-black/50 relative overflow-hidden">
+                  <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-6 md:p-8 backdrop-blur-xl hover:border-accent-primary/20 hover:bg-white/[0.02] hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 shadow-lg shadow-black/50 relative overflow-hidden">
                     
                     {/* Subtle internal glow on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

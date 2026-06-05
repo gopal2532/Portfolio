@@ -93,7 +93,9 @@ export default function Projects() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-            My Projects<span className="text-accent-primary transition-colors duration-500">.</span>
+            <span className="inline-block text-white">
+              My Projects<span className="text-accent-primary transition-colors duration-500">.</span>
+            </span>
           </h2>
         </motion.div>
 
@@ -133,7 +135,7 @@ export default function Projects() {
                   onClick={() => setActiveIndex(originalIndex)}
                   className="group relative cursor-pointer rounded-3xl overflow-hidden h-full"
                 >
-                  <Tilt className="w-full h-full p-5 bg-white/[0.01] border border-white/5 hover:border-accent-primary/30 hover:bg-white/[0.03] transition-all duration-500 shadow-lg shadow-black/50 flex flex-col">
+                  <Tilt className="w-full h-full p-5 bg-white/[0.01] border border-white/5 hover:border-accent-primary/30 hover:bg-white/[0.03] hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 shadow-lg shadow-black/50 flex flex-col">
                     {/* Card Image */}
                     <div className="relative h-48 w-full mb-6 overflow-hidden rounded-2xl">
                       <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
