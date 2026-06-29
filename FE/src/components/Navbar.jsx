@@ -48,7 +48,7 @@ export default function Navbar() {
           href="#home" 
           className="font-extrabold text-2xl tracking-tight text-white z-50 relative group"
         >
-          Gopal<span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">.dev</span>
+          <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors"></span>
         </a>
 
         {/* DESKTOP LINKS */}
