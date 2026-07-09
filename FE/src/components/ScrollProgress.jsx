@@ -16,8 +16,8 @@ export default function ScrollProgress() {
       className="
         fixed top-0 left-0 right-0 h-[3px]
         origin-left z-[60]
-        bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600
-        shadow-[0_0_12px_rgba(249,115,22,0.6)]
+        bg-accent-primary
+        shadow-[0_0_12px_var(--accent-glow)]
       "
     />
   );

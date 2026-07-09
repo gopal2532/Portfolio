@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
-    <div className="bg-[#0b0b0b] text-white">
+    <div className="bg-[#0b0b0b] text-white min-h-screen">
       <ScrollProgress />
       <Navbar />
 
