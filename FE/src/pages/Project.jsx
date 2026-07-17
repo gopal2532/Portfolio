@@ -43,17 +43,26 @@ const projects = [
     solutions: "Utilized React Server Components (RSC), Next.js App Router caching, and Redux Toolkit slices with optimistic UI state rendering.",
     results: "Achieved a near-instant user checkout flow, substantially boosting theoretical conversion rates."
   },
+  {
+    title: "Hostel Management System",
+    category: "fullstack",
+    desc: "Comprehensive accommodation portal for managing room allocations, student check-ins, fee collections, and maintenance requests.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1469&auto=format&fit=crop",
+    link: "#",
+    github: "#",
+    metrics: "Automated 90% of manual room bookings, serves 1,200+ active residents",
+    challenges: "Handling real-time room availability status during peak reservation periods and keeping database transactions ACID compliant.",
+    solutions: "Built a robust booking locking mechanism using Redis TTL locks and MongoDB transaction sessions for multi-document operations.",
+    results: "Eliminated double-bookings entirely and reduced front-desk check-in overhead from minutes to a single QR scan."
+  }
 ];
-
-const categories = ["all", "frontend", "fullstack", "systems"];
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(null);
-  const [activeCategory, setActiveCategory] = useState("all");
+  const [showAll, setShowAll] = useState(false);
 
-  const filteredProjects = projects.filter(
-    (p) => activeCategory === "all" || p.category === activeCategory
-  );
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   // Prevent background scrolling when modal is open
   if (typeof document !== "undefined") {
@@ -69,7 +78,7 @@ export default function Projects() {
       
       {/* Background Grid Pattern */}
       <div 
-        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
+         className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
         style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }} 
       />
 
@@ -99,30 +108,11 @@ export default function Projects() {
           </h2>
         </motion.div>
 
-        {/* CATEGORY FILTERS */}
-        <div className="flex flex-wrap gap-2.5 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
-                activeCategory === cat
-                  ? "bg-accent-primary border-accent-primary text-black shadow-[0_0_15px_var(--accent-glow)]"
-                  : "bg-white/[0.01] border-white/5 text-gray-400 hover:text-white hover:border-white/15"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
         {/* PROJECT GRID */}
         <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project, index) => {
-              // We need the original index in the full list for modal details
+            {displayedProjects.map((project) => {
               const originalIndex = projects.findIndex((p) => p.title === project.title);
-              
               return (
                 <motion.div
                   layout
@@ -186,6 +176,17 @@ export default function Projects() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {projects.length > 3 && (
+          <div className="flex justify-center mt-12">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="px-8 py-3.5 rounded-xl border border-white/10 hover:border-accent-primary hover:text-accent-primary text-gray-300 font-semibold transition-all duration-300 bg-white/[0.02] backdrop-blur-sm cursor-pointer shadow-[0_0_15px_rgba(0,0,0,0.3)] hover:shadow-[0_0_20px_var(--accent-glow)]"
+            >
+              {showAll ? "Show Less" : "View All Projects"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* CENTER MODAL */}

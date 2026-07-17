@@ -1,43 +1,50 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Briefcase, Calendar, GraduationCap, Award } from "lucide-react";
+import { Download, Briefcase, Calendar, GraduationCap, Award, X } from "lucide-react";
 
 const experiences = [
   {
-    role: "Frontend Developer",
-    company: "Freelance & Projects",
-    period: "2025 – Present",
-    desc: "Built scalable, responsive user interfaces with smooth animations using React, Tailwind CSS, and modern UX principles. Developed reusable component libraries, integrated WebSockets/MQTT packets, and optimized performance.",
+    role: "Associate Full Stack Developer",
+    company: "Macsoft Electronics Controller",
+    period: "10 Months – Present",
+    desc: "Working with real-time projects, handling end-to-end frontend and backend development. Utilizing React, Node.js, Express, MySQL, JavaScript, Tailwind CSS, and GitHub to build and manage full-stack web applications.",
+  },
+  {
+    role: "Frontend Developer Intern",
+    company: "Tech Jose",
+    period: "4 Months",
+    desc: "Contributed to real-time production projects as an intern. Developed interactive user interfaces using React, styled with Tailwind CSS, and implemented modular, clean JavaScript logic.",
   },
 ];
 
 const education = [
   {
-    role: "B.E. in Computer Science & Engineering",
-    company: "Anna University Affiliate College",
+    role: "B.E. in Electronics & Communication Engineering",
+    company: "Sri Shakthi Institute of Engineering and Technology",
     period: "2020 – 2024",
-    desc: "Studied core software engineering principles, object-oriented programming, data structures, algorithms, and web applications. Developed web-based capstone projects.",
+    desc: "Studied core engineering principles, digital electronics.",
   },
   {
-    role: "Full Stack Web Certification",
-    company: "Advanced Software Engineering Bootcamp",
-    period: "2024",
-    desc: "Completed intensive specialized training focused on building production-grade React components, RESTful Node.js APIs, database design, and CI/CD deployment pipelines.",
+    role: "MERN Full Stack ",
+    company: "Pumo Technovation",
+    period: "8 Months",
+    desc: "Completed intensive training focused on the MERN stack (MongoDB, Express, React, Node.js), building production-grade web components, RESTful API development.",
   },
 ];
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("work");
+  const [showPreview, setShowPreview] = useState(false);
 
   const timelineData = activeTab === "work" ? experiences : education;
 
   return (
     <section className="relative bg-[#050505] py-24 min-h-screen flex flex-col justify-center overflow-hidden">
-      
+
       {/* Background Grid Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }} 
+      <div
+        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
+        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
       />
 
       {/* Decorative Glows */}
@@ -45,7 +52,7 @@ export default function Resume() {
       <div className="absolute bottom-1/3 -right-32 w-96 h-96 bg-accent-secondary/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 w-full">
-        
+
         {/* HEADER SECTION */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -72,6 +79,7 @@ export default function Resume() {
           <motion.a
             href="/Gopalakrishnan_Resume.pdf"
             download
+            onClick={() => setShowPreview(true)}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent-primary hover:bg-accent-secondary text-black font-extrabold transition-all duration-300 shadow-[0_0_15px_var(--accent-glow)] hover:shadow-[0_0_25px_var(--accent-glow)] w-full md:w-auto cursor-pointer"
@@ -85,9 +93,8 @@ export default function Resume() {
         <div className="flex gap-4 mb-16 border-b border-white/5 pb-px relative z-20">
           <button
             onClick={() => setActiveTab("work")}
-            className={`pb-4 text-lg font-bold capitalize transition-all duration-300 relative cursor-pointer ${
-              activeTab === "work" ? "text-accent-primary" : "text-gray-500 hover:text-gray-300"
-            }`}
+            className={`pb-4 text-lg font-bold capitalize transition-all duration-300 relative cursor-pointer ${activeTab === "work" ? "text-accent-primary" : "text-gray-500 hover:text-gray-300"
+              }`}
           >
             Work Experience
             {activeTab === "work" && (
@@ -99,9 +106,8 @@ export default function Resume() {
           </button>
           <button
             onClick={() => setActiveTab("education")}
-            className={`pb-4 text-lg font-bold capitalize transition-all duration-300 relative cursor-pointer ${
-              activeTab === "education" ? "text-accent-primary" : "text-gray-500 hover:text-gray-300"
-            }`}
+            className={`pb-4 text-lg font-bold capitalize transition-all duration-300 relative cursor-pointer ${activeTab === "education" ? "text-accent-primary" : "text-gray-500 hover:text-gray-300"
+              }`}
           >
             Education & Training
             {activeTab === "education" && (
@@ -137,7 +143,7 @@ export default function Resume() {
 
                   {/* TIMELINE CARD */}
                   <div className="bg-white/[0.01] border border-white/5 rounded-3xl p-6 md:p-8 backdrop-blur-xl hover:border-accent-primary/20 hover:bg-white/[0.02] hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 shadow-lg shadow-black/50 relative overflow-hidden">
-                    
+
                     {/* Subtle internal glow on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-accent-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
@@ -173,6 +179,56 @@ export default function Resume() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* RESUME PREVIEW MODAL */}
+      <AnimatePresence>
+        {showPreview && (
+          <>
+            {/* Backdrop blur */}
+            <motion.div
+              className="fixed inset-0 bg-black/85 backdrop-blur-md z-[100] cursor-pointer"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowPreview(false)}
+            />
+
+            {/* Modal window */}
+            <motion.div
+              className="fixed inset-0 z-[101] flex items-center justify-center p-4 sm:p-6 md:p-10 pointer-events-none"
+              initial={{ opacity: 0, scale: 0.96, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 15 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative bg-[#080808] border border-white/10 rounded-3xl shadow-[0_0_50px_var(--accent-glow)] overflow-hidden w-full max-w-4xl h-[85vh] pointer-events-auto flex flex-col">
+                {/* Header */}
+                <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-[#0c0c0c]/80 backdrop-blur-md">
+                  <h3 className="font-extrabold text-white text-base flex items-center gap-2 font-mono uppercase tracking-wider">
+                    <span className="w-2 h-2 rounded-full bg-accent-primary animate-pulse" />
+                    Resume Preview
+                  </h3>
+                  <button
+                    onClick={() => setShowPreview(false)}
+                    className="p-2 rounded-full bg-black/60 hover:bg-accent-primary/5 hover:border-accent-primary/30 border border-white/10 transition-colors z-20 group cursor-pointer"
+                  >
+                    <X size={16} className="text-gray-400 group-hover:text-white" />
+                  </button>
+                </div>
+
+                {/* PDF Viewer Frame */}
+                <div className="flex-1 bg-[#050505]">
+                  <iframe
+                    src="/Gopalakrishnan_Resume.pdf"
+                    title="Resume Preview"
+                    className="w-full h-full border-none"
+                  />
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

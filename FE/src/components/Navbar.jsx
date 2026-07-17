@@ -66,26 +66,17 @@ export default function Navbar() {
             </a>
           ))}
 
-          {/* Accent Color Dot Picker */}
-          <div className="flex items-center gap-2 bg-white/[0.03] border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md">
-            <Palette size={14} className="text-gray-400 mr-0.5" />
-            {Object.keys(ACCENT_THEMES).map((themeName) => {
-              const themeColors = ACCENT_THEMES[themeName];
-              const isSelected = accent === themeName;
-              return (
-                <button
-                  key={themeName}
-                  onClick={() => setAccent(themeName)}
-                  title={`Accent: ${themeName}`}
-                  className={`w-3.5 h-3.5 rounded-full transition-all duration-300 relative ${isSelected
-                    ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
-                    : "hover:scale-110 opacity-50 hover:opacity-100"
-                    }`}
-                  style={{ backgroundColor: themeColors.primary }}
-                />
-              );
-            })}
-          </div>
+          {/* Accent Color Toggle Button */}
+          <button
+            onClick={() => setAccent(accent === "cyan" ? "emerald" : "cyan")}
+            title="Toggle Theme Color (Blue / Green)"
+            className="flex items-center justify-center p-2 rounded-lg bg-white/[0.03] border border-white/10 hover:border-accent-primary/30 hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer shadow-md"
+          >
+            <Palette 
+              size={16} 
+              className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)]" 
+            />
+          </button>
 
           {/* Desktop CTA Button */}
           <a
@@ -134,30 +125,21 @@ export default function Navbar() {
                 </motion.a>
               ))}
 
-              {/* Mobile Accent Dot Picker */}
-              <motion.div
+              {/* Mobile Accent Toggle Button */}
+              <motion.button
+                onClick={() => setAccent(accent === "cyan" ? "emerald" : "cyan")}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
-                className="flex items-center gap-3 bg-white/[0.03] border border-white/10 px-4 py-2.5 rounded-full mt-4"
+                title="Toggle Theme Color (Blue / Green)"
+                className="flex items-center justify-center p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-accent-primary/30 hover:bg-white/[0.06] transition-all duration-300 group mt-4 cursor-pointer"
               >
-                <Palette size={16} className="text-gray-400 mr-0.5" />
-                {Object.keys(ACCENT_THEMES).map((themeName) => {
-                  const themeColors = ACCENT_THEMES[themeName];
-                  const isSelected = accent === themeName;
-                  return (
-                    <button
-                      key={themeName}
-                      onClick={() => setAccent(themeName)}
-                      className={`w-5 h-5 rounded-full transition-all duration-300 relative ${isSelected
-                        ? "scale-125 ring-2 ring-white ring-offset-2 ring-offset-[#050505] opacity-100"
-                        : "opacity-50"
-                        }`}
-                      style={{ backgroundColor: themeColors.primary }}
-                    />
-                  );
-                })}
-              </motion.div>
+                <Palette 
+                  size={20} 
+                  className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)] mr-2" 
+                />
+                <span className="text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Toggle Accent Color</span>
+              </motion.button>
 
               {/* Mobile CTA Button */}
               <motion.a

@@ -181,46 +181,55 @@ function TypewriterRoles() {
 */
 function AnimatedName({ text }) {
   const letters = text.split("");
+  const [rippleSource, setRippleSource] = useState(null);
+  const [animationKey, setAnimationKey] = useState(0);
+
+  const handleHover = (index) => {
+    setRippleSource(index);
+    setAnimationKey((prev) => prev + 1);
+  };
 
   return (
-    <motion.span
-      className="inline-flex flex-wrap cursor-pointer"
-      initial="rest"
-      animate="rest"
-      whileHover="hover"
-      variants={{
-        hover: {
-          transition: {
-            staggerChildren: 0.04,
-          },
-        },
-      }}
-    >
-      {letters.map((char, index) => (
-        <motion.span
-          key={index}
-          className="inline-block transition-colors duration-200"
-          variants={{
-            rest: {
+    <span className="inline-flex flex-wrap cursor-pointer">
+      {letters.map((char, index) => {
+        const distance = rippleSource !== null ? Math.abs(index - rippleSource) : 0;
+        const delay = distance * 0.035;
+
+        return (
+          <motion.span
+            key={`${index}-${animationKey}`}
+            onMouseEnter={() => handleHover(index)}
+            onTouchStart={() => handleHover(index)}
+            className="inline-block transition-colors duration-200"
+            initial={{
               y: 0,
               color: "var(--accent-secondary)",
               textShadow: "0 0 6px var(--accent-glow)",
-            },
-            hover: {
-              y: [0, -12, 0],
-              color: "var(--accent-primary)",
-              textShadow: "0 0 10px var(--accent-primary), 0 0 25px var(--accent-glow)",
-              transition: {
-                duration: 0.4,
-                ease: "easeOut",
-              },
-            },
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </motion.span>
+            }}
+            animate={{
+              y: rippleSource !== null ? [0, -12, 0] : 0,
+              color: rippleSource !== null 
+                ? ["var(--accent-secondary)", "var(--accent-primary)", "var(--accent-secondary)"]
+                : "var(--accent-secondary)",
+              textShadow: rippleSource !== null
+                ? [
+                    "0 0 6px var(--accent-glow)",
+                    "0 0 12px var(--accent-primary), 0 0 25px var(--accent-glow)",
+                    "0 0 6px var(--accent-glow)"
+                  ]
+                : "0 0 6px var(--accent-glow)",
+            }}
+            transition={{
+              duration: 0.45,
+              ease: "easeOut",
+              delay: delay,
+            }}
+          >
+            {char === " " ? "\u00A0" : char}
+          </motion.span>
+        );
+      })}
+    </span>
   );
 }
 
