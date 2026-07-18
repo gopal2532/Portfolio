@@ -5,56 +5,43 @@ import Tilt from "../components/Tilt.jsx";
 
 const projects = [
   {
-    title: "SMT Rack System",
+    title: "Smart Reel Rack System",
     category: "systems",
-    desc: "Real-time rack monitoring and inventory management system designed for high-efficiency manufacturing environments.",
-    tech: ["React", "MQTT", "Prisma", "Tailwind", "Node.js"],
+    desc: "Maintains real-time inventory of component reels across racks. Supports adding/withdrawing reels, dispatching operator picklists, managing user-specific access roles, and tracking real-time quantity adjustments.",
+    tech: ["React", "Node.js", "Express", "MySQL", "Tailwind"],
     image: "https://images.unsplash.com/photo-1581090700227-1e8c3a6b1d9f?q=80&w=1470&auto=format&fit=crop",
     link: "#",
     github: "#",
-    metrics: "35% faster stock counts, 99.9% packet transmission uptime",
-    challenges: "Managing high-frequency MQTT packets (100+ events per second) without lagging the UI or overloading the database connection pool.",
-    solutions: "Implemented client-side packet throttling, WebSocket/MQTT grouping, and batch-upsert queries on Prisma with transactional index caching.",
-    results: "Reduced average inventory query latency from 4.2s to 80ms, delivering immediate visual feedback for warehouse operators."
+    metrics: "Optimized picklist workflows and real-time reel tracking by location",
+    challenges: "Handling concurrent transactions when multiple operators withdraw components from the same rack locations.",
+    solutions: "Developed relational database tables with transaction locks in MySQL and designed Express API controllers to validate quantity balances in real-time.",
+    results: "Operators trace reel positions instantly and update inventory counts on checkout, eliminating component location mismatches."
   },
   {
     title: "Job Portal Platform",
     category: "fullstack",
-    desc: "Role-based job posting and application management platform with dynamic filtering and resume parsing.",
-    tech: ["React", "Node.js", "Express", "MySQL", "Prisma"],
+    desc: "An HR portal designed to schedule and manage candidate interviews, post vacancy announcements to social media channels, and coordinate or reschedule candidate meetings in real-time.",
+    tech: ["React", "Node.js", "Express", "MySQL", "Tailwind"],
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1470&auto=format&fit=crop",
     link: "#",
     github: "#",
-    metrics: "Parses 500+ resumes/min, 40% reduction in recruitment cycle times",
-    challenges: "Parsing PDF/Word resumes into structured JSON schemas accurately while handling massive load spikes from concurrent applicants.",
-    solutions: "Built asynchronous queue processes on Node.js using BullMQ/Redis and combined custom expression extractors with deep heuristics API calls.",
-    results: "Recruiters successfully filter hundreds of applicants in seconds, creating a streamlined applicant hiring pipeline."
-  },
-  {
-    title: "E-Commerce Architecture",
-    category: "frontend",
-    desc: "Modern responsive shopping UI featuring seamless cart interactions, state management, and clean UX.",
-    tech: ["Next.js", "Tailwind", "Redux", "Framer Motion"],
-    image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=1470&auto=format&fit=crop",
-    link: "#",
-    github: "#",
-    metrics: "98 Lighthouse performance score, 60% faster page transitions",
-    challenges: "Maintaining a massive product list cache client-side without degrading DOM performance, while ensuring instant page loads and cart updates.",
-    solutions: "Utilized React Server Components (RSC), Next.js App Router caching, and Redux Toolkit slices with optimistic UI state rendering.",
-    results: "Achieved a near-instant user checkout flow, substantially boosting theoretical conversion rates."
+    metrics: "Streamlines scheduling and automates candidate meeting notifications",
+    challenges: "Coordinating real-time calendar updates, rescheduling parameters, and integrating social media dispatch channels dynamically.",
+    solutions: "Designed structured MySQL transactional tables and developed calendar scheduling routing with Express APIs to coordinate candidate reschedule slots.",
+    results: "Automated candidate dispatch notifications and meeting links, significantly reducing HR recruitment coordination efforts."
   },
   {
     title: "Hostel Management System",
     category: "fullstack",
-    desc: "Comprehensive accommodation portal for managing room allocations, student check-ins, fee collections, and maintenance requests.",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind"],
+    desc: "Implemented comprehensive tracking for rooms, food & kitchen management, kitchen inventory, electricity bills, 2/3 sharing configurations, rent, advance payments, daily/weekly food menus, resident attendance, complaint raising, and separated role-based access for maintenance staff.",
+    tech: ["React", "Node.js", "Express", "MySQL", "Tailwind"],
     image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=1469&auto=format&fit=crop",
     link: "#",
     github: "#",
-    metrics: "Automated 90% of manual room bookings, serves 1,200+ active residents",
-    challenges: "Handling real-time room availability status during peak reservation periods and keeping database transactions ACID compliant.",
-    solutions: "Built a robust booking locking mechanism using Redis TTL locks and MongoDB transaction sessions for multi-document operations.",
-    results: "Eliminated double-bookings entirely and reduced front-desk check-in overhead from minutes to a single QR scan."
+    metrics: "Features dedicated roles for admins, residents, and maintenance",
+    challenges: "Designing a highly normalized MySQL database schema to handle roommates, kitchen inventory, electricity bills, attendance tracking, and complaint tickets without lag.",
+    solutions: "Created relational SQL tables with optimized index paths and transactional REST API endpoints in Express to coordinate payments, complaints, and meal logs.",
+    results: "Hostel administrators now manage room assignments, menus, billing, and member concerns in real-time, eliminating manual spreadsheets."
   }
 ];
 

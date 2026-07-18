@@ -68,7 +68,7 @@ export default function About() {
   };
 
   const techStack = [
-    "React", "JavaScript", "Tailwind CSS", "Node.js", 
+    "React", "JavaScript", "Tailwind CSS", "Node.js",
     "Express.js", "Prisma", "MySQL", "HTML5", "CSS3", "Git"
   ];
 
@@ -81,11 +81,11 @@ export default function About() {
 
   return (
     <section className="relative bg-[#050505] min-h-screen flex items-center overflow-hidden py-24">
-      
+
       {/* Background grid pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }} 
+      <div
+        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
+        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
       />
 
       {/* Decorative Glows */}
@@ -108,11 +108,11 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* LEFT: Main Content & Stats */}
           <motion.div variants={itemVariants} className="lg:col-span-7 space-y-8">
             <h2 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 tracking-tight leading-tight">
-              Engineering digital <br/>
+              Engineering digital <br />
               <span className="inline-block text-white">
                 experiences<span className="text-accent-primary transition-colors duration-500">.</span>
               </span>
@@ -126,7 +126,7 @@ export default function About() {
                 With a strong focus on <span className="text-accent-primary font-medium transition-colors duration-500">performance and architecture</span>, I specialize in the MERN stack ecosystem and modern database systems, turning ideas into high-performance web applications that users love.
               </p>
             </div>
-            
+
             {/* Counts Counter Dashboard */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-6 border-y border-white/5">
               {stats.map((stat, i) => (
@@ -146,8 +146,8 @@ export default function About() {
               <p className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Core Technologies</p>
               <div className="flex flex-wrap gap-2.5">
                 {techStack.map((tech) => (
-                  <motion.span 
-                    key={tech} 
+                  <motion.span
+                    key={tech}
                     variants={itemVariants}
                     whileHover={{ y: -2 }}
                     className="px-4 py-2 bg-white/[0.02] border border-white/5 hover:border-accent-primary/40 rounded-xl text-sm text-gray-300 hover:text-accent-primary transition-all duration-300 cursor-default shadow-sm backdrop-blur-sm"
@@ -161,39 +161,37 @@ export default function About() {
 
           {/* RIGHT: Bento Box Cards */}
           <motion.div variants={itemVariants} className="lg:col-span-5 grid gap-6">
-            
+
             {/* Card 1: Philosophy */}
             <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
-               <div className="relative z-10">
-                 <Terminal className="w-8 h-8 text-accent-primary mb-5 transition-colors duration-500" />
-                 <h3 className="text-white font-bold text-xl mb-3">Development Philosophy</h3>
-                 <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
-                   "Fail fast, learn faster"
-                 </p>
-               </div>
-               {/* Dynamic theme accent blur */}
-               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
+              <div className="relative z-10">
+                <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
+                  "Fail fast, learn faster"
+                </p>
+              </div>
+              {/* Dynamic theme accent blur */}
+              <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
             </Tilt>
 
             <div className="grid grid-cols-2 gap-6">
               {/* Card 2: Performance */}
               <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
-                 <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                 <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
-                 <p className="text-gray-400 text-xs leading-relaxed">
-                   Optimized load times and zero-lag interactions.
-                 </p>
-                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
+                <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
+                <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Optimized load times and zero-lag interactions.
+                </p>
+                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
               </Tilt>
 
               {/* Card 3: UX/UI */}
               <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
-                 <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                 <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
-                 <p className="text-gray-400 text-xs leading-relaxed">
-                   Pixel-perfect layouts with a focus on usability.
-                 </p>
-                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
+                <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
+                <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
+                <p className="text-gray-400 text-xs leading-relaxed">
+                  Pixel-perfect layouts with a focus on usability.
+                </p>
+                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
               </Tilt>
             </div>
 

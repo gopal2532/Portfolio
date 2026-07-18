@@ -67,11 +67,11 @@ export default function Contact() {
 
   return (
     <section className="relative bg-[#050505] py-24 min-h-screen flex items-center overflow-hidden">
-      
+
       {/* Background Grid Pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }} 
+      <div
+        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
+        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
       />
 
       {/* Decorative Glows */}
@@ -85,7 +85,7 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.2 }}
           className="grid lg:grid-cols-2 gap-16 items-center"
         >
-          
+
           {/* LEFT: Text & Contact Info */}
           <div className="space-y-8">
             <motion.div variants={itemVariants}>
@@ -96,7 +96,7 @@ export default function Contact() {
                 </span>
               </div>
               <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-                Let's Build Something <span className="inline-block text-accent-primary transition-colors duration-500">Together.</span>
+                Let's Build Something <span className="inline-block text-accent-primary transition-colors duration-500">Together </span>
               </h2>
               <p className="text-gray-400 text-lg leading-relaxed max-w-md">
                 I'm currently open for new opportunities. Whether you have a question, a project idea, or just want to say hi, I'll try my best to get back to you!
@@ -106,8 +106,8 @@ export default function Contact() {
             <motion.div variants={itemVariants} className="space-y-6 pt-4">
               {/* Direct Info */}
               <div className="flex flex-col gap-4">
-                <a 
-                  href="mailto:gopal994329@gmail.com" 
+                <a
+                  href="mailto:gopal994329@gmail.com"
                   className="flex items-center gap-4 text-gray-300 hover:text-accent-primary transition-all duration-300 w-fit group"
                 >
                   <div className="w-12 h-12 rounded-full bg-white/[0.01] border border-white/5 flex items-center justify-center group-hover:bg-accent-primary/10 group-hover:border-accent-primary/30 transition-all duration-300">
@@ -115,7 +115,7 @@ export default function Contact() {
                   </div>
                   <span className="font-semibold text-lg tracking-wide">gopal994329@gmail.com</span>
                 </a>
-                
+
                 <div className="flex items-center gap-4 text-gray-300 w-fit">
                   <div className="w-12 h-12 rounded-full bg-white/[0.01] border border-white/5 flex items-center justify-center">
                     <MapPin size={18} className="text-gray-400" />
@@ -126,18 +126,18 @@ export default function Contact() {
 
               {/* Social Links */}
               <div className="flex items-center gap-4 pt-4 relative z-20">
-                <a 
-                  href="https://github.com/gopal2532" 
-                  target="_blank" 
-                  rel="noreferrer" 
+                <a
+                  href="https://github.com/gopal2532"
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-12 h-12 rounded-full bg-white/[0.01] border border-white/5 flex items-center justify-center text-gray-400 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   <Github size={20} />
                 </a>
-                <a 
-                  href="https://www.linkedin.com/in/gopalakrishnan-g-310a00358/" 
-                  target="_blank" 
-                  rel="noreferrer" 
+                <a
+                  href="https://www.linkedin.com/in/gopalakrishnan-g-310a00358/"
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-12 h-12 rounded-full bg-white/[0.01] border border-white/5 flex items-center justify-center text-gray-400 hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:-translate-y-1"
                 >
                   <Linkedin size={20} />
@@ -151,17 +151,17 @@ export default function Contact() {
             <div className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 sm:p-10 shadow-2xl relative min-h-[460px] flex flex-col justify-center overflow-hidden">
               <AnimatePresence mode="wait">
                 {status !== "success" ? (
-                  <motion.form 
+                  <motion.form
                     key="contact-form"
                     initial={{ opacity: 0, scale: 0.98 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.98 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-5" 
+                    className="space-y-5"
                     onSubmit={handleSubmit}
                     noValidate
                   >
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       {/* Name */}
                       <div className="space-y-2">
@@ -172,9 +172,8 @@ export default function Contact() {
                           onChange={(e) => handleInputChange(e, "name")}
                           disabled={status === "submitting"}
                           placeholder="John Doe"
-                          className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 text-sm ${
-                            errors.name ? "border-red-500/50" : "border-white/10"
-                          }`}
+                          className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 text-sm ${errors.name ? "border-red-500/50" : "border-white/10"
+                            }`}
                         />
                         {errors.name && (
                           <p className="text-xs text-red-400 font-mono mt-1 ml-1">{errors.name}</p>
@@ -190,9 +189,8 @@ export default function Contact() {
                           onChange={(e) => handleInputChange(e, "email")}
                           disabled={status === "submitting"}
                           placeholder="john@example.com"
-                          className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 text-sm ${
-                            errors.email ? "border-red-500/50" : "border-white/10"
-                          }`}
+                          className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 text-sm ${errors.email ? "border-red-500/50" : "border-white/10"
+                            }`}
                         />
                         {errors.email && (
                           <p className="text-xs text-red-400 font-mono mt-1 ml-1">{errors.email}</p>
@@ -209,9 +207,8 @@ export default function Contact() {
                         onChange={(e) => handleInputChange(e, "message")}
                         disabled={status === "submitting"}
                         placeholder="Tell me about your project, timeline, and goals..."
-                        className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 resize-none text-sm ${
-                          errors.message ? "border-red-500/50" : "border-white/10"
-                        }`}
+                        className={`w-full bg-black border rounded-xl px-5 py-4 text-white placeholder-gray-600 focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-all duration-300 resize-none text-sm ${errors.message ? "border-red-500/50" : "border-white/10"
+                          }`}
                       />
                       {errors.message && (
                         <p className="text-xs text-red-400 font-mono mt-1 ml-1">{errors.message}</p>
@@ -242,7 +239,7 @@ export default function Contact() {
 
                   </motion.form>
                 ) : (
-                  <motion.div 
+                  <motion.div
                     key="success-form"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
