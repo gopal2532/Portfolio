@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMysql, SiPrisma } from "react-icons/si";
@@ -17,7 +16,7 @@ const skills = [
   { name: "GitHub",      icon: FaGithub,     color: "#FFFFFF", desc: "Version Control", category: "tools"    },
 ];
 
-const categories = ["all", "frontend", "backend", "tools"];
+
 
 const containerVariants = {
   hidden: {},
@@ -34,11 +33,6 @@ const cardVariants = {
 };
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
 
   return (
     <section className="relative bg-[#030303] py-28 overflow-hidden min-h-screen flex flex-col justify-center">
@@ -88,22 +82,7 @@ export default function Skills() {
           </motion.p>
         </div>
 
-        {/* ── category filters ── */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-12 relative z-20">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border cursor-pointer ${
-                activeCategory === cat
-                  ? "bg-accent-primary border-accent-primary text-black shadow-[0_0_15px_var(--accent-glow)]"
-                  : "bg-white/[0.01] border-white/5 text-gray-400 hover:text-white hover:border-white/15"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+
 
         {/* ── skills grid ── */}
         <motion.div 
@@ -115,7 +94,7 @@ export default function Skills() {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5 min-h-[340px]"
         >
           <AnimatePresence mode="popLayout">
-            {filteredSkills.map((skill) => {
+            {skills.map((skill) => {
               const Icon = skill.icon;
               return (
                 <motion.div

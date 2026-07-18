@@ -167,8 +167,8 @@ export default function About() {
                <div className="relative z-10">
                  <Terminal className="w-8 h-8 text-accent-primary mb-5 transition-colors duration-500" />
                  <h3 className="text-white font-bold text-xl mb-3">Development Philosophy</h3>
-                 <p className="text-gray-400 leading-relaxed text-sm">
-                   "Clean code is not written by humans who don't make mistakes, but by humans who care about the next person reading it. Architecture matters."
+                 <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
+                   "Fail fast, learn faster"
                  </p>
                </div>
                {/* Dynamic theme accent blur */}

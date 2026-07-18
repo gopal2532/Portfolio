@@ -75,11 +75,11 @@ export default function Projects() {
 
   return (
     <section className="relative bg-[#050505] px-6 py-24 min-h-screen overflow-hidden">
-      
+
       {/* Background Grid Pattern */}
-      <div 
-         className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none" 
-        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }} 
+      <div
+        className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
+        style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
       />
 
       {/* Decorative Glows */}
@@ -87,7 +87,7 @@ export default function Projects() {
       <div className="absolute bottom-1/3 -left-32 w-96 h-96 bg-accent-secondary/5 blur-[120px] rounded-full pointer-events-none transition-colors duration-500" />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-        
+
         {/* SECTION HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,9 +129,9 @@ export default function Projects() {
                     {/* Card Image */}
                     <div className="relative h-48 w-full mb-6 overflow-hidden rounded-2xl">
                       <div className="absolute inset-0 bg-accent-primary/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
-                      <img 
-                        src={project.image} 
-                        alt={project.title} 
+                      <img
+                        src={project.image}
+                        alt={project.title}
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[20%] group-hover:grayscale-0"
                       />
                     </div>
@@ -144,7 +144,7 @@ export default function Projects() {
                       <p className="text-gray-400 text-sm mb-6 line-clamp-2 leading-relaxed">
                         {project.desc}
                       </p>
-                      
+
                       {/* Performance metrics display */}
                       <div className="flex items-center gap-2 mb-6 bg-white/[0.02] border border-white/5 px-3 py-2 rounded-xl">
                         <Trophy size={14} className="text-accent-primary shrink-0" />
@@ -211,7 +211,7 @@ export default function Projects() {
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative bg-[#080808] border border-white/10 rounded-3xl shadow-[0_0_50px_var(--accent-glow)] overflow-hidden w-full max-w-5xl pointer-events-auto flex flex-col md:flex-row max-h-[92vh]">
-                
+
                 {/* CLOSE BUTTON */}
                 <button
                   onClick={() => setActiveIndex(null)}
@@ -275,15 +275,15 @@ export default function Projects() {
 
                   {/* Action Buttons */}
                   <div className="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-white/5">
-                    <a 
-                      href={projects[activeIndex].link} 
+                    <a
+                      href={projects[activeIndex].link}
                       className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-accent-primary hover:bg-accent-secondary text-black font-extrabold transition-all duration-300 shadow-[0_0_15px_var(--accent-glow)] hover:shadow-[0_0_20px_var(--accent-glow)] cursor-pointer"
                     >
                       <ExternalLink size={16} />
                       Live Demo
                     </a>
-                    <a 
-                      href={projects[activeIndex].github} 
+                    <a
+                      href={projects[activeIndex].github}
                       className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:border-accent-primary hover:text-accent-primary text-gray-300 font-bold transition-all duration-300 bg-white/[0.01]"
                     >
                       <Github size={16} />

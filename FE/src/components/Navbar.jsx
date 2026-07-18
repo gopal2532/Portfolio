@@ -49,7 +49,7 @@ export default function Navbar() {
           href="#home"
           className="font-extrabold text-2xl tracking-tight text-white z-50 relative group"
         >
-          Gopal<span className="text-accent-primary group-hover:text-accent-secondary transition-colors"></span>
+          <span className="text-accent-primary group-hover:text-accent-secondary transition-colors"></span>
         </a>
 
         {/* DESKTOP LINKS & THEME WIDGET */}
@@ -72,9 +72,9 @@ export default function Navbar() {
             title="Toggle Theme Color (Blue / Green)"
             className="flex items-center justify-center p-2 rounded-lg bg-white/[0.03] border border-white/10 hover:border-accent-primary/30 hover:bg-white/[0.06] transition-all duration-300 group cursor-pointer shadow-md"
           >
-            <Palette 
-              size={16} 
-              className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)]" 
+            <Palette
+              size={16}
+              className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)]"
             />
           </button>
 
@@ -134,9 +134,9 @@ export default function Navbar() {
                 title="Toggle Theme Color (Blue / Green)"
                 className="flex items-center justify-center p-3.5 rounded-xl bg-white/[0.03] border border-white/10 hover:border-accent-primary/30 hover:bg-white/[0.06] transition-all duration-300 group mt-4 cursor-pointer"
               >
-                <Palette 
-                  size={20} 
-                  className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)] mr-2" 
+                <Palette
+                  size={20}
+                  className="text-accent-primary group-hover:scale-110 transition-transform duration-300 filter drop-shadow-[0_0_8px_var(--accent-glow)] mr-2"
                 />
                 <span className="text-sm font-bold text-gray-300 group-hover:text-white transition-colors">Toggle Accent Color</span>
               </motion.button>
