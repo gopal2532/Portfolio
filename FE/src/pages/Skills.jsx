@@ -61,7 +61,6 @@ export default function Skills() {
             <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
             <span className="text-xs font-bold text-accent-primary uppercase tracking-widest">02. Tech Stack</span>
           </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }}

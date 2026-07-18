@@ -165,9 +165,9 @@ export default function About() {
             {/* Card 1: Philosophy */}
             <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
               <div className="relative z-10">
-                <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
-                  "Fail fast, learn faster"
-                </p>
+                 <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
+                   "Clean code is not written by humans who don't make mistakes, but by humans who care about the next person reading it. Architecture matters."
+                 </p>
               </div>
               {/* Dynamic theme accent blur */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />

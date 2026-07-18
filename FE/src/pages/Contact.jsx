@@ -66,7 +66,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative bg-[#050505] py-24 min-h-screen flex items-center overflow-hidden">
+    <section className="relative bg-[#050505] py-16 md:py-24 flex items-center overflow-hidden">
 
       {/* Background Grid Pattern */}
       <div
@@ -89,12 +89,7 @@ export default function Contact() {
           {/* LEFT: Text & Contact Info */}
           <div className="space-y-8">
             <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-8 h-[1px] bg-accent-primary transition-colors duration-500"></span>
-                <span className="text-accent-primary font-mono text-sm tracking-widest uppercase font-semibold transition-colors duration-500">
-                  05. What's Next?
-                </span>
-              </div>
+
               <h2 className="text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
                 Let's Build Something <span className="inline-block text-accent-primary transition-colors duration-500">Together </span>
               </h2>
