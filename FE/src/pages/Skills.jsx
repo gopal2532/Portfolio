@@ -93,7 +93,7 @@ export default function Skills() {
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-5 min-h-[340px]"
         >
           <AnimatePresence mode="popLayout">
-            {skills.map((skill) => {
+            {skills.map((skill, index) => {
               const Icon = skill.icon;
               return (
                 <motion.div
@@ -108,29 +108,37 @@ export default function Skills() {
                 >
                   <Tilt
                     className="w-full h-full flex flex-col items-center justify-center gap-4
-                      border border-white/5 bg-white/[0.015] hover:border-accent-primary/20 
-                      cursor-default transition-all duration-500 hover:-translate-y-1.5"
+                      cursor-default transition-all duration-500 md:hover:-translate-y-1.5
+                      card-border-run"
+                    style={{
+                      "--card-glow-color-solid": `${skill.color}60`,
+                      animationDelay: `${index * 0.25}s`,
+                    }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.boxShadow = `0 20px 50px -12px ${skill.color}40`;
+                      if (window.innerWidth > 768) {
+                        e.currentTarget.style.boxShadow = `0 20px 50px -12px ${skill.color}40`;
+                      }
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.boxShadow = "none";
+                      if (window.innerWidth > 768) {
+                        e.currentTarget.style.boxShadow = "";
+                      }
                     }}
                   >
                     {/* Hover glow */}
                     <div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10"
                       style={{ background: `radial-gradient(ellipse at 50% 80%, ${skill.color}14 0%, transparent 65%)` }}
                     />
 
                     {/* Top border glow */}
                     <div
-                      className="absolute top-0 left-[20%] right-[20%] h-[2px] rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      className="absolute top-0 left-[20%] right-[20%] h-[2px] rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
                       style={{ background: `linear-gradient(90deg, transparent, ${skill.color}, transparent)` }}
                     />
 
                     {/* Icon */}
-                    <div className="relative flex items-center justify-center w-14 h-14">
+                    <div className="relative flex items-center justify-center w-14 h-14 z-10">
                       {/* Inner glow */}
                       <div
                         className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
@@ -143,7 +151,7 @@ export default function Skills() {
                     </div>
 
                     {/* Skill Info */}
-                    <div className="text-center transition-all duration-500 group-hover:-translate-y-1">
+                    <div className="text-center transition-all duration-500 group-hover:-translate-y-1 relative z-10">
                       <p className="text-sm font-extrabold text-white/80 group-hover:text-white transition-colors">
                         {skill.name}
                       </p>
