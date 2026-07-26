@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 import { Terminal, Zap, Sparkles } from "lucide-react";
 import Tilt from "../components/Tilt.jsx";
 
-/* 
-  Scroll-Triggered CountUp Animation Component
-*/
+// Scroll-triggered counter animation
 function CountUp({ end, duration = 1.5, suffix = "" }) {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
@@ -75,8 +73,7 @@ export default function About() {
   const stats = [
     { value: 1, suffix: "+", label: "Year Experience" },
     { value: 15, suffix: "+", label: "Projects Completed" },
-    { value: 100, suffix: "+", label: "Contributions" },
-    { value: 99, suffix: "%", label: "Client Happiness" }
+    { value: 100, suffix: "+", label: "Contributions" }
   ];
 
   return (
@@ -123,12 +120,12 @@ export default function About() {
                 I’m a passionate <span className="text-gray-200 font-semibold">Frontend & Full-Stack Developer</span> who bridges the gap between complex logic and elegant design. I don't just write code; I build intuitive, scalable, and engaging digital products.
               </p>
               <p>
-                With a strong focus on <span className="text-accent-primary font-medium transition-colors duration-500">performance and architecture</span>, I specialize in the MERN stack ecosystem and modern database systems, turning ideas into high-performance web applications that users love.
+                With a strong focus on <span className="text-accent-primary font-medium transition-colors duration-500">performance and architecture</span>, I specialize in full-stack development and modern database systems, turning ideas into high-performance web applications that users love.
               </p>
             </div>
 
             {/* Counts Counter Dashboard */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-6 border-y border-white/5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 py-6 border-y border-white/5">
               {stats.map((stat, i) => (
                 <div key={i} className="text-left">
                   <div className="text-3xl sm:text-4xl font-extrabold text-white font-mono flex items-center">
@@ -165,9 +162,9 @@ export default function About() {
             {/* Card 1: Philosophy */}
             <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
               <div className="relative z-10">
-                 <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
-                   "Clean code is not written by humans who don't make mistakes, but by humans who care about the next person reading it. Architecture matters."
-                 </p>
+                <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
+                  "Fail fast, learn faster."
+                </p>
               </div>
               {/* Dynamic theme accent blur */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
@@ -178,8 +175,8 @@ export default function About() {
               <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
                 <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
                 <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Optimized load times and zero-lag interactions.
+                <p className="text-gray-400 text-xs leading-relaxed font-medium">
+                  Optimizing every millisecond to deliver blazing-fast load times and snappy, responsive flows.
                 </p>
                 <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
               </Tilt>

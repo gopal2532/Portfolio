@@ -28,7 +28,7 @@ const education = [
     role: "MERN Full Stack ",
     company: "Pumo Technovation",
     period: "8 Months",
-    desc: "Completed intensive training focused on the MERN stack (MongoDB, Express, React, Node.js), building production-grade web components, RESTful API development.",
+    desc: "Completed intensive training focused on full-stack web development (MongoDB, Express, React, Node.js), building production-grade components, and RESTful API development.",
   },
 ];
 

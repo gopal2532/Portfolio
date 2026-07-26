@@ -37,7 +37,7 @@ export default function Skills() {
   return (
     <section className="relative bg-[#030303] py-28 overflow-hidden min-h-screen flex flex-col justify-center">
 
-      {/* ── background ── */}
+      {/* Background radial blurs */}
       <div className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
@@ -51,7 +51,7 @@ export default function Skills() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 w-full">
 
-        {/* ── header ── */}
+        {/* Section Header */}
         <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export default function Skills() {
 
 
 
-        {/* ── skills grid ── */}
+        {/* Skills Grid */}
         <motion.div 
           layout
           variants={containerVariants}
@@ -117,21 +117,21 @@ export default function Skills() {
                       e.currentTarget.style.boxShadow = "none";
                     }}
                   >
-                    {/* radial brand glow on hover */}
+                    {/* Hover glow */}
                     <div
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                       style={{ background: `radial-gradient(ellipse at 50% 80%, ${skill.color}14 0%, transparent 65%)` }}
                     />
 
-                    {/* top accent line */}
+                    {/* Top border glow */}
                     <div
                       className="absolute top-0 left-[20%] right-[20%] h-[2px] rounded-b-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ background: `linear-gradient(90deg, transparent, ${skill.color}, transparent)` }}
                     />
 
-                    {/* icon wrapper */}
+                    {/* Icon */}
                     <div className="relative flex items-center justify-center w-14 h-14">
-                      {/* glow ring */}
+                      {/* Inner glow */}
                       <div
                         className="absolute inset-0 rounded-full blur-xl opacity-0 group-hover:opacity-60 transition-opacity duration-500"
                         style={{ backgroundColor: skill.color }}
@@ -142,7 +142,7 @@ export default function Skills() {
                       />
                     </div>
 
-                    {/* name + desc */}
+                    {/* Skill Info */}
                     <div className="text-center transition-all duration-500 group-hover:-translate-y-1">
                       <p className="text-sm font-extrabold text-white/80 group-hover:text-white transition-colors">
                         {skill.name}

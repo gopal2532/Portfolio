@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-/* 
-  1. Canvas Particles Background (Dynamic Color Connection)
-*/
 function CanvasParticles() {
   const canvasRef = useRef(null);
 
@@ -131,13 +128,10 @@ function CanvasParticles() {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />;
 }
 
-/* 
-  2. Typewriter Subtitles
-*/
 function TypewriterRoles() {
   const roles = [
     "Frontend Developer",
-    "MERN Stack Developer",
+    "Backend Developer",
     "Full Stack Developer",
   ];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -176,9 +170,6 @@ function TypewriterRoles() {
   );
 }
 
-/* 
-  3. Animated Name (Hover-triggered Letter Animation)
-*/
 function AnimatedName({ text }) {
   const letters = text.split("");
   const [rippleSource, setRippleSource] = useState(null);
@@ -233,9 +224,6 @@ function AnimatedName({ text }) {
   );
 }
 
-/* 
-  4. Floating Tech Icon Component
-*/
 const FloatingIcon = ({ children, delay, className, label }) => (
   <motion.div
     animate={{ y: [0, -10, 0] }}
@@ -256,9 +244,6 @@ const FloatingIcon = ({ children, delay, className, label }) => (
   </motion.div>
 );
 
-/* 
-  5. Main Home (Hero) Section
-*/
 export default function Home() {
   const [parallaxOffset, setParallaxOffset] = useState({ x: 0, y: 0 });
   const [spotlight, setSpotlight] = useState({ x: 0, y: 0 });
@@ -290,10 +275,8 @@ export default function Home() {
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center bg-[#050505] px-6 overflow-hidden">
 
-      {/* 1. Canvas Interactive Particles */}
       <CanvasParticles />
 
-      {/* Dynamic Cursor Spotlight Mesh Glow */}
       <div
         className="absolute inset-0 z-0 opacity-40 pointer-events-none"
         style={{
@@ -301,7 +284,6 @@ export default function Home() {
         }}
       />
 
-      {/* 2. Subtle Grid Overlay */}
       <div
         className="absolute inset-0 z-0 opacity-[0.02] pointer-events-none"
         style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '48px 48px' }}
@@ -353,7 +335,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.5 }}
             className="text-gray-400 mt-6 max-w-xl text-lg sm:text-xl leading-relaxed mx-auto md:mx-0"
           >
-            I build modern, animated, and scalable web applications using the <span className="text-gray-200 font-semibold">MERN stack</span> (MongoDB, Express, React, Node.js) and clean full-stack architecture.
+            I build modern, animated, and scalable web applications focusing on clean full-stack architecture and interactive user experiences.
           </motion.p>
 
           {/* Buttons */}

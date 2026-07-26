@@ -7,7 +7,7 @@ export default function Footer() {
           © {new Date().getFullYear()}{" "}
           <span className="text-white font-medium">Gopalakrishnan</span>
           <span className="mx-2 text-gray-600">•</span>
-          MERN & Full-Stack Developer
+          Full-Stack Developer
         </p>
 
         {/* Optional links */}
