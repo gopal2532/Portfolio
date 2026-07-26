@@ -5,7 +5,7 @@ import { Download, Briefcase, Calendar, GraduationCap, Award, X } from "lucide-r
 const experiences = [
   {
     role: "Associate Full Stack Developer",
-    company: "Macsoft Electronics Controller",
+    company: "Macsoft Electronic Controls",
     period: "10 Months – Present",
     desc: "Working with real-time projects, handling end-to-end frontend and backend development. Utilizing React, Node.js, Express, MySQL, JavaScript, Tailwind CSS, and GitHub to build and manage full-stack web applications.",
   },
