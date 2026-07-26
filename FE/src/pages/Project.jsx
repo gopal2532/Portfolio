@@ -9,7 +9,7 @@ const projects = [
     category: "systems",
     desc: "Maintains real-time inventory of component reels across racks. Supports adding/withdrawing reels, dispatching operator picklists, managing user-specific access roles, and tracking real-time quantity adjustments.",
     tech: ["React", "Node.js", "Express", "MySQL", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1581090700227-1e8c3a6b1d9f?q=80&w=1470&auto=format&fit=crop",
+    image: "/smart_reel_rack.png",
     link: "#",
     github: "#",
     metrics: "Optimized picklist workflows and real-time reel tracking by location",

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Zap, Sparkles } from "lucide-react";
+import { Terminal, Zap, Sparkles, Palette } from "lucide-react";
 import Tilt from "../components/Tilt.jsx";
 
 // Scroll-triggered counter animation
@@ -52,6 +52,23 @@ function CountUp({ end, duration = 1.5, suffix = "" }) {
 }
 
 export default function About() {
+  const [activeColor, setActiveColor] = useState("#06b6d4");
+
+  const themeColors = [
+    { name: "Cyan", primary: "#06b6d4", secondary: "#22d3ee", glow: "rgba(6, 182, 212, 0.4)" },
+    { name: "Emerald", primary: "#10b981", secondary: "#34d399", glow: "rgba(16, 185, 129, 0.4)" },
+    { name: "Violet", primary: "#8b5cf6", secondary: "#a78bfa", glow: "rgba(139, 92, 246, 0.4)" },
+    { name: "Rose", primary: "#f43f5e", secondary: "#fb7185", glow: "rgba(244, 63, 94, 0.4)" },
+    { name: "Amber", primary: "#f59e0b", secondary: "#fbbf24", glow: "rgba(245, 158, 11, 0.4)" },
+  ];
+
+  const handleColorChange = (color) => {
+    setActiveColor(color.primary);
+    document.documentElement.style.setProperty("--accent-primary", color.primary);
+    document.documentElement.style.setProperty("--accent-secondary", color.secondary);
+    document.documentElement.style.setProperty("--accent-glow", color.glow);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -158,39 +175,32 @@ export default function About() {
 
           {/* RIGHT: Bento Box Cards */}
           <motion.div variants={itemVariants} className="lg:col-span-5 grid gap-6">
-
             {/* Card 1: Philosophy */}
             <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
               <div className="relative z-10">
-                <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
-                  "Fail fast, learn faster."
-                </p>
+                  <p className="text-gray-200 font-extrabold italic text-base sm:text-lg border-l-2 border-accent-primary pl-4 py-1 leading-relaxed transition-colors duration-500">
+                    "Fail fast, learn faster."
+                  </p>
               </div>
               {/* Dynamic theme accent blur */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-accent-primary/10 rounded-full blur-2xl group-hover:bg-accent-primary/20 group-hover:scale-150 transition-all duration-700 pointer-events-none" />
             </Tilt>
 
-            <div className="grid grid-cols-2 gap-6">
-              {/* Card 2: Performance */}
-              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
-                <Zap className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                <h3 className="text-white font-bold text-lg mb-1">Fast</h3>
-                <p className="text-gray-400 text-xs leading-relaxed font-medium">
-                  Optimizing every millisecond to deliver blazing-fast load times and snappy, responsive flows.
-                </p>
-                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
-              </Tilt>
-
-              {/* Card 3: UX/UI */}
-              <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-6 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_25px_var(--accent-glow)] transition-all duration-500 cursor-default">
-                <Sparkles className="w-7 h-7 text-accent-primary mb-4 transition-colors duration-500" />
-                <h3 className="text-white font-bold text-lg mb-1">Intuitive</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Pixel-perfect layouts with a focus on usability.
-                </p>
-                <div className="absolute -bottom-8 -right-8 w-20 h-20 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
-              </Tilt>
-            </div>
+            {/* Card 2: Intuitive Design */}
+            <Tilt className="bg-white/[0.01] border border-white/5 backdrop-blur-xl rounded-3xl p-8 relative overflow-hidden group hover:border-accent-primary/30 hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-500 cursor-default">
+              <div className="relative z-10 flex gap-5 items-start">
+                <div className="p-3 bg-accent-primary/10 rounded-2xl border border-accent-primary/20 shrink-0 text-accent-primary transition-colors duration-500">
+                  <Sparkles className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="text-white font-extrabold text-xl mb-2">Intuitive Design</h3>
+                  <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    Pixel-perfect layouts, dynamic micro-interactions, and a relentless focus on creating fluid, user-first experiences.
+                  </p>
+                </div>
+              </div>
+              <div className="absolute -bottom-8 -right-8 w-28 h-28 bg-accent-primary/5 rounded-full blur-xl group-hover:bg-accent-primary/10 transition-all duration-700 pointer-events-none" />
+            </Tilt>
 
           </motion.div>
 
