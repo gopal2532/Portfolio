@@ -260,7 +260,7 @@ export default function Projects() {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
+                  {/* Action Buttons (Commented out)
                   <div className="flex flex-wrap items-center gap-4 mt-auto pt-4 border-t border-white/5">
                     <a
                       href={projects[activeIndex].link}
@@ -277,6 +277,7 @@ export default function Projects() {
                       Source Code
                     </a>
                   </div>
+                  */}
                 </div>
 
               </div>
