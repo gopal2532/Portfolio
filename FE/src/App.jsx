@@ -10,8 +10,14 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   return (
-    <div className="bg-[#0b0b0b] text-white min-h-screen relative overflow-x-hidden">
-      {/* Mobile Ambient Glow Animations */}
+    <div className="bg-[#050505] text-white min-h-screen relative overflow-x-hidden selection:bg-accent-primary/30 selection:text-white">
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute left-[-8%] top-[6%] h-72 w-72 rounded-full bg-accent-primary/8 blur-[120px]" />
+        <div className="absolute right-[-8%] top-[22%] h-80 w-80 rounded-full bg-accent-secondary/8 blur-[130px]" />
+        <div className="absolute bottom-[8%] left-[12%] h-72 w-72 rounded-full bg-accent-primary/6 blur-[110px]" />
+        <div className="absolute bottom-[16%] right-[8%] h-80 w-80 rounded-full bg-accent-secondary/6 blur-[120px]" />
+      </div>
+
       <div className="md:hidden fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute top-[10%] left-[10%] w-[250px] h-[250px] rounded-full bg-accent-primary/5 blur-[90px] animate-float-bg" />
         <div className="absolute bottom-[20%] right-[10%] w-[300px] h-[300px] rounded-full bg-accent-secondary/5 blur-[100px] animate-float-bg [animation-delay:6s]" />
@@ -21,12 +27,12 @@ export default function App() {
       <Navbar />
 
       <main className="relative z-10">
-        <section id="home"> <Home /> </section>
+        <section id="home"><Home /></section>
         <section id="about"><About /></section>
         <section id="skills"><Skills /></section>
-        <section id="projects"><Projects/></section>
+        <section id="projects"><Projects /></section>
         <section id="resume"><Resume /></section>
-        <section id="contact"><Contact/></section>
+        <section id="contact"><Contact /></section>
       </main>
 
       <Footer />
